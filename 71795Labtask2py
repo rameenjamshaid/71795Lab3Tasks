@@ -1,0 +1,32 @@
+class ECGReading:
+    def __init__(self, rr, qrs): 
+        self.rr = rr
+        self.qrs = qrs
+    def classify(self):
+        if self.rr > 1000:
+            result = "Bradycardia"
+            if self.qrs > 120:
+                result += " with Wide QRS"
+            else:
+                result += " with Narrow QRS"
+        elif self.rr < 600:
+            result = "Tachycardia"
+            if self.qrs > 120:
+                result += " with Wide QRS"
+            else:
+                result += " with Narrow QRS"
+        else:
+            result = "Normal Rhythm"
+            if self.qrs > 120:
+               result += " with Wide QRS"
+            else:
+               result += " with Narrow QRS"
+        print(result)
+e1 = ECGReading(1200,130)
+e2 = ECGReading(500,100)
+e3 = ECGReading(800,125)
+e4 = ECGReading(700,100)
+e1.classify()
+e2.classify()
+e3.classify()
+e4.classify()
